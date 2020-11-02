@@ -26,6 +26,11 @@ function startCounting(){
     }, 1000)
 }
 
+function focusInputBox() {
+    console.log(1)
+    document.getElementById("input-box").focus()
+}
+
 function stopCounting(){
     clearInterval(this.timer);
 }

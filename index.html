@@ -8,7 +8,7 @@
     <script src="index.js"></script>
     <script src="game.js"></script>
 </head>
-<body onload="init(0)">
+<body onload="init()">
 <header id="main-header">
     <nav>
         <h2>Furious Typer</h2>
@@ -29,8 +29,10 @@
         <label id="secondsLabel">0</label>
     </header>
     <div>
-        <div id="input-box-wrapper">
+        <div onclick="focusInputBox()" id="input-box-wrapper">
 <!--            <div>asd</div>-->
+            <div id="previous-box">
+            </div>
             <div id="input-box" class="single-line" contenteditable="true"></div>
             <div id="text-box" style="max-width: 50%">Hello my dear friend. </div>
         </div>

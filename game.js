@@ -1,8 +1,8 @@
 this.currentWord = "";
 
-function init(wordIndex){
+function init(){
     const text = document.getElementById("text-box").innerText;
-    this.currentWord = text.split(" ")[wordIndex];
+    this.currentWord = text.split(" ").filter(el => el !== "")[0];
 
     const inputElement = document.getElementById("input-box");
     inputElement.addEventListener("keydown", function(e){handleBackspace(e)} );
@@ -29,6 +29,7 @@ function handleBackspace(event){
             const newText = lastChar + text;
             document.getElementById("text-box").innerText = newText;
         }
+
         //Finally validate word and apply styles
         fixInputStyle(true);
     }
@@ -37,13 +38,26 @@ function handleBackspace(event){
 function handleSpace(){
     //Get input word from user
     let inputValue = document.getElementById("input-box").innerText;
+
     //Remove last char because it is the space that has just been pressed
     inputValue = inputValue.substr(0, inputValue.length - 1);
-    //Compare it to current word
+
+    //Word is correct
     if(inputValue === this.currentWord){
-        //If both strings match that means that the user has successfully typed the current word
-        //Now mark it as done and switch to the next word
-        init(2);
+        //Add this word to the prev container
+        const prevWordsContainer = document.getElementById("previous-box");
+        const wordSpan = document.createElement("span");
+        wordSpan.innerText = inputValue;
+        prevWordsContainer.appendChild(wordSpan);
+
+        //Clear text from input box
+        document.getElementById("input-box").innerText = "";
+
+        //Trim remaining text
+        document.getElementById("text-box").innerText = document.getElementById("text-box").innerText.substr(1);
+
+        //Set next word
+        init();
     }else{
         console.log(false);
     }
@@ -55,24 +69,28 @@ function handleInputChange(event){
     //If so return because we have
     //Different handler for backspace
     if(event.inputType === "deleteContentBackward") return;
+
     //Check if input value is space
     //If so handle it
     else if(event.data === " ") return handleSpace();
 
     //Get input word from user
     const inputValue = document.getElementById("input-box").innerText;
+
     //Get last character
     const lastChar = inputValue[inputValue.length - 1];
 
     //Get current text
     const text = document.getElementById("text-box").innerText;
+
     //Get first character
     const firstChar = text[0];
 
     //Compare user's last character and current text's first character
-    if(lastChar === firstChar || (firstChar.charCodeAt(0) === 32 && lastChar.charCodeAt(0) === 160)){
+    if(isWordValid(false) && (lastChar === firstChar || (firstChar.charCodeAt(0) === 32 && lastChar.charCodeAt(0) === 160))){
         //Remove first character from text
         const newText = text.substr(1);
+
         //Set new text
         document.getElementById("text-box").innerText = newText;
     }
@@ -89,8 +107,10 @@ function isWordValid(backSpace){
     const inputValue = document.getElementById("input-box").innerText;
 
     //If the word is longer than the actual word it is wrong.
-    if(inputValue.length > this.currentWord.length)
-        return false;
+    if(inputValue.length > this.currentWord.length) return false;
+
+    //Word is complete
+    if(inputValue === this.currentWord) return true;
 
     let diff;
     if(backSpace)

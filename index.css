@@ -18,7 +18,7 @@ html{
     caret-color: black;
     text-align: right;
     outline: none;
-    width: 50%;
+    width: fit-content;
     color: deepskyblue;
 }
 
@@ -29,7 +29,7 @@ html{
 #input-box-wrapper{
     border: 1px solid black;
     display: flex;
-    /*justify-content: center;*/
+    justify-content: center;
 }
 
 #text-box{
@@ -50,4 +50,9 @@ html{
 [contenteditable="true"].single-line * {
     display:inline;
     white-space:nowrap;
+}
+
+#previous-box span{
+    margin: 0 0.1rem;
+    color: gray;
 }
