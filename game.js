@@ -21,7 +21,7 @@ function handleBackspace(event){
 
         const lastChar = inputValue[inputValue.length - 1];
         //Decide if current character should be inserted in the text.
-        if(this.currentWord[inputValue.length - 1] === lastChar){
+        if(this.currentWord[inputValue.length - 1] === lastChar && isWordValid(true)){
             //Get current text
             const text = document.getElementById("text-box").innerText;
 
