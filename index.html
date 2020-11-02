@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Furious Typer</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="header.css" />
+    <script src="index.js"></script>
+    <script src="game.js"></script>
+</head>
+<body onload="init(0)">
+<header id="main-header">
+    <nav>
+        <h2>Furious Typer</h2>
+        <ul>
+            <li>
+                <a id="menu-play" class="menu-item-active" onclick="handleMenuClick('play')" href="#">Play</a>
+            </li>
+            <li>
+                <a id="menu-highscore" onclick="handleMenuClick('highscore')" href="#">High score</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div id="main-wrapper">
+    <header >
+        <button onclick="startCounting()">Start</button>
+        <button onclick="stopCounting()">Stop</button>
+        <label id="secondsLabel">0</label>
+    </header>
+    <div>
+        <div id="input-box-wrapper">
+<!--            <div>asd</div>-->
+            <div id="input-box" class="single-line" contenteditable="true"></div>
+            <div id="text-box" style="max-width: 50%">Hello my dear friend. </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

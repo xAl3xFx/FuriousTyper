@@ -1,0 +1,38 @@
+#main-header{
+    background: linear-gradient(to right, #33ccff 0%, #ff99cc 100%);
+    display: inline-block;
+    width: 100%;
+}
+
+#main-header ul{
+    float: right;
+    display: flex;
+}
+
+#main-header ul li{
+    list-style: none;
+    margin: 0 1rem;
+    font-weight: bold;
+}
+
+#main-header h2{
+    text-align: center;
+    margin: 0;
+    line-height: 70px;
+    height: 10px;
+}
+
+
+#main-header ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+#main-header ul li a:hover{
+    color: black;
+}
+
+.menu-item-active{
+    color: black !important;
+
+}

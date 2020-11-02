@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 20px;
+}
+
+#main-wrapper header{
+    text-align: center;
+}
+
+#main-wrapper header label{
+    display: block;
+}
+
+#input-box{
+    caret-color: black;
+    text-align: right;
+    outline: none;
+    width: 50%;
+    color: deepskyblue;
+}
+
+.wrong{
+    text-decoration: line-through;
+}
+
+#input-box-wrapper{
+    border: 1px solid black;
+    display: flex;
+    /*justify-content: center;*/
+}
+
+#text-box{
+    white-space: pre;
+    max-width: 50%;
+    overflow: hidden;
+}
+
+[contenteditable="true"].single-line {
+    white-space: nowrap;
+    width:200px;
+    overflow: hidden;
+}
+[contenteditable="true"].single-line br {
+    display:none;
+
+}
+[contenteditable="true"].single-line * {
+    display:inline;
+    white-space:nowrap;
+}
