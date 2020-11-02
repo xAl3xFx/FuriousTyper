@@ -27,7 +27,6 @@ function startCounting(){
 }
 
 function focusInputBox() {
-    console.log(1)
     document.getElementById("input-box").focus()
 }
 

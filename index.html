@@ -8,7 +8,7 @@
     <script src="index.js"></script>
     <script src="game.js"></script>
 </head>
-<body onload="init()">
+<body onload="init(); renderTimer()">
 <header id="main-header">
     <nav>
         <h2>Furious Typer</h2>
@@ -24,9 +24,7 @@
 </header>
 <div id="main-wrapper">
     <header >
-        <button onclick="startCounting()">Start</button>
-        <button onclick="stopCounting()">Stop</button>
-        <label id="secondsLabel">0</label>
+        <canvas id="timer" width="150" height="150" >Your browser does not support the HTML5 canvas tag.</canvas>
     </header>
     <div>
         <div onclick="focusInputBox()" id="input-box-wrapper">

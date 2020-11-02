@@ -1,4 +1,5 @@
 this.currentWord = "";
+this.timerStarted = false;
 
 function init(){
     const text = document.getElementById("text-box").innerText;
@@ -7,6 +8,46 @@ function init(){
     const inputElement = document.getElementById("input-box");
     inputElement.addEventListener("keydown", function(e){handleBackspace(e)} );
     inputElement.addEventListener("input", function (e) {handleInputChange(e)});
+}
+
+function renderTimer() {
+    var c = document.getElementById("timer");
+    var ctx = c.getContext("2d");
+    ctx.clearRect(0, 0, 150, 150);
+    ctx.beginPath();
+    ctx.font = "35px Arial";
+    ctx.arc(75, 75, 74, 1.5 * Math.PI, 3.5 * Math.PI);
+    ctx.strokeText(60, 55, 85);
+    ctx.stroke();
+}
+
+function startTimer() {
+    this.timerStarted = true;
+    let startAngleCoef = 1.5;
+    let secondsPassed = 0;
+    //100 because when setInterval fires for first time, at least 100 seconds would have passed
+    let tenthsPassed = 100;
+
+    const timer = setInterval(function () {
+        var c = document.getElementById("timer");
+        var ctx = c.getContext("2d");
+        ctx.clearRect(0, 0, 150, 150);
+        ctx.beginPath();
+        ctx.font = "35px Arial";
+        ctx.arc(75, 75, 74, startAngleCoef * Math.PI, 3.5 * Math.PI);
+        ctx.strokeText(60 - secondsPassed, 55, 85);
+        ctx.stroke();
+        startAngleCoef += 0.003333333;
+        if(tenthsPassed === 900){
+            secondsPassed++;
+            tenthsPassed = 0;
+        }else{
+            tenthsPassed += 100;
+        }
+
+        if(secondsPassed === 61) clearInterval(timer);
+    }, 100);
+
 }
 
 //Function to handle backspace
@@ -38,6 +79,12 @@ function handleBackspace(event){
 function handleSpace(){
     //Get input word from user
     let inputValue = document.getElementById("input-box").innerText;
+
+    //Important to prevent deleting next word.
+    if(inputValue.length === 0) return;
+
+    //If user input = " " then return
+    if((inputValue.length === 1 && inputValue.charCodeAt(0) === 160) || inputValue.charAt(0) === " ") return 0;
 
     //Remove last char because it is the space that has just been pressed
     inputValue = inputValue.substr(0, inputValue.length - 1);
@@ -82,17 +129,30 @@ function handleSpace(){
 
 //Function to handle text insertion
 function handleInputChange(event){
+    //First, start the timer if not started.
+    if(!this.timerStarted){
+        startTimer();
+    }
+
+    //Get input word from user
+    const inputValue = document.getElementById("input-box").innerText;
+
     //Check if backspace is pressed
     //If so return because we have
     //Different handler for backspace
     if(event.inputType === "deleteContentBackward") return;
 
     //Check if input value is space
-    //If so handle it
-    else if(event.data === " ") return handleSpace();
+    else if(event.data.charAt(0) === " " || event.data.charCodeAt(0) === 160){
+        //If user input is just equal to " " return and clear input
+        if((inputValue.length === 1 && inputValue.charCodeAt(0) === 160) || inputValue.charAt(0) === " ") {
+            document.getElementById("input-box").innerText = "";
+            return 0;
+        }
 
-    //Get input word from user
-    const inputValue = document.getElementById("input-box").innerText;
+        //Else handle space
+        handleSpace();
+    }
 
     //Get last character
     const lastChar = inputValue[inputValue.length - 1];
