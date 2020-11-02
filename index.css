@@ -20,6 +20,8 @@ html{
     outline: none;
     width: fit-content;
     color: deepskyblue;
+    line-height: 1.5;
+    font-size: 25px;
 }
 
 .wrong{
@@ -27,15 +29,19 @@ html{
 }
 
 #input-box-wrapper{
-    border: 1px solid black;
+    border: 1px solid gray;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
+    height: 2rem;
 }
 
 #text-box{
     white-space: pre;
     max-width: 50%;
     overflow: hidden;
+    line-height: 1.5;
+    font-size: 25px;
 }
 
 [contenteditable="true"].single-line {
@@ -53,6 +59,8 @@ html{
 }
 
 #previous-box span{
-    margin: 0 0.1rem;
+    margin: 0 0.2rem;
     color: gray;
+    line-height: 1.5;
+    font-size: 25px;
 }

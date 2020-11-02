@@ -54,12 +54,29 @@ function handleSpace(){
         document.getElementById("input-box").innerText = "";
 
         //Trim remaining text
-        document.getElementById("text-box").innerText = document.getElementById("text-box").innerText.substr(1);
+        const remainingText = document.getElementById("text-box").innerText;
+        document.getElementById("text-box").innerText = remainingText.substr(remainingText.indexOf(" ") + 1)
 
         //Set next word
         init();
     }else{
-        console.log(false);
+        //Then the word is incorrect
+        //Take user's input and add it to prev container and start next word
+        const prevWordsContainer = document.getElementById("previous-box");
+        const wordSpan = document.createElement("span");
+        wordSpan.innerText = inputValue;
+        wordSpan.style.textDecoration = "line-through";
+        prevWordsContainer.appendChild(wordSpan);
+
+        //Clear text from input box
+        document.getElementById("input-box").innerText = "";
+
+        //Trim remaining text
+        const remainingText = document.getElementById("text-box").innerText;
+        document.getElementById("text-box").innerText = remainingText.substr(remainingText.indexOf(" ") + 1)
+
+        //Set next word
+        init();
     }
 }
 
