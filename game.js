@@ -3,8 +3,12 @@ timerStarted = false;
 correctWords = 0;
 wrongWords = 0;
 wpm = 0;
-secondsPassed = 0;
+secondsPassed = 55;
 prevInput = "";
+passedWords = {
+    correct: [],
+    incorrect: []
+};
 
 function fetchWords() {
     const APIKey = "5ns9momoyv3b2af81kb1p5g3yc5nn3ccwpmrnjtssetblfipv";
@@ -24,6 +28,7 @@ function fetchWords() {
 }
 
 function init(){
+    //TODO Next line must be removed when using the Wordnik API.
     currentWord = document.getElementById("text-box").innerText.split(" ").filter(el => el !== "")[0];
 
     const inputElement = document.getElementById("input-box");
@@ -38,6 +43,8 @@ function init(){
             modal.style.display = "none";
         }
     }
+
+    //Load words from API
     fetchWords();
 }
 
@@ -92,10 +99,9 @@ function startTimer() {
         }
 
         if(secondsPassed === 60) {
+            clearInterval(timer);
             ctx.clearRect(0, 0, 150, 150);
             ctx.fillText("0", 65, 85);
-            ctx.stroke();
-            clearInterval(timer);
             showDialog();
         }
     }, 100);
@@ -117,6 +123,9 @@ function showDialog() {
 
     //Show modal
     modal.style.display = "block";
+
+    //Finally generate tables with correct and incorrect words
+    generateTables(passedWords);
 }
 
 
@@ -127,9 +136,6 @@ function handleWordWritten(wordCorrect){
     //Update correct/wrong words count
     wordCorrect ? correctWords ++ : wrongWords ++;
 
-    console.log(`correctWords ${correctWords}`)
-    console.log(`wrongWords ${wrongWords}`)
-
     //Calculate WPM
     wpm = parseInt(correctWords / (secondsPassed / 60)) || 0;
     //Set WPM label
@@ -139,7 +145,9 @@ function handleWordWritten(wordCorrect){
     const accuracy = parseInt(correctWords * 100 / ( correctWords + wrongWords)) || 0 ;
     //Set accuracy label
     document.getElementById("accuracy").innerText = accuracy;
-    console.log(accuracy)
+
+    //Add word to the passedWords array
+    wordCorrect ? passedWords.correct.push(currentWord) : passedWords.incorrect.push(currentWord);
 }
 
 //Function to handle backspace

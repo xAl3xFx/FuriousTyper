@@ -10,6 +10,40 @@ html{
     background-size: cover;
 }
 
+#word-tables{
+    display: flex;
+}
+
+#table-correct, #table-incorrect{
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    background: #fff1e6;
+    display: none;
+}
+
+#table-correct tbody, #table-incorrect tbody{
+    font-family: "Montserrat", sans-serif;
+}
+
+#table-correct caption, #table-incorrect caption{
+    background: #81b29a;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    border-collapse: collapse;
+}
+
+#table-incorrect caption{
+    background: #e07a5f;
+}
+
+#table-correct, #table-incorrect, td, th {
+    border: black 2px solid;
+    border-collapse: collapse;
+}
+
 #main-wrapper header{
     text-align: center;
 }
