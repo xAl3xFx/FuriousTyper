@@ -4,6 +4,8 @@
 
 html{
     font-size: 20px;
+    background-image: url("./background-paper-brown.jpg");
+    background-size: cover;
 }
 
 #main-wrapper header{
@@ -34,6 +36,8 @@ html{
     display: flex;
     justify-content: center;
     height: 2rem;
+    background: whitesmoke;
+    cursor: pointer;
 }
 
 #text-box{
@@ -66,5 +70,32 @@ html{
 }
 
 #timer{
-    margin: 1rem 0;
+    margin: 1rem 0 0.5rem 0;
+}
+
+#wpm{
+    margin: 0.5rem 0 1rem 0;
+    font-size: 40px;
+}
+
+#wpm:after{
+    content: " WPM";
+}
+
+#blinking-cursor {
+    font-weight: 100;
+    color: #2E3D48;
+    animation: 1s blink step-end infinite;
+    line-height: 1.05 !important;
+    font-size: 30px !important;
+    margin: 0 !important;
+}
+
+@keyframes blink {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: black;
+    }
 }

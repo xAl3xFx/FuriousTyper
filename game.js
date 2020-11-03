@@ -1,5 +1,9 @@
 this.currentWord = "";
 this.timerStarted = false;
+this.correctWords = 0;
+this.wrongWords = 0;
+this.wpm = 0;
+this.secondsPassed = 0;
 
 function init(){
     const text = document.getElementById("text-box").innerText;
@@ -16,15 +20,21 @@ function renderTimer() {
     ctx.clearRect(0, 0, 150, 150);
     ctx.beginPath();
     ctx.font = "35px Arial";
-    ctx.arc(75, 75, 74, 1.5 * Math.PI, 3.5 * Math.PI);
-    ctx.strokeText(60, 55, 85);
+    ctx.arc(75, 75, 70, 1.5 * Math.PI, 3.5 * Math.PI);
+    ctx.fillText(60, 55, 85);
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = "#fff1e6";
     ctx.stroke();
 }
 
 function startTimer() {
+    //When timer is started, it means that the user has started typing
+    //so we need to remove the blinking caret
+    const blinkingCaret = document.getElementById("blinking-cursor");
+    blinkingCaret.parentElement.removeChild(blinkingCaret);
+
     this.timerStarted = true;
     let startAngleCoef = 1.5;
-    let secondsPassed = 0;
     //100 because when setInterval fires for first time, at least 100 seconds would have passed
     let tenthsPassed = 100;
 
@@ -34,19 +44,33 @@ function startTimer() {
         ctx.clearRect(0, 0, 150, 150);
         ctx.beginPath();
         ctx.font = "35px Arial";
-        ctx.arc(75, 75, 74, startAngleCoef * Math.PI, 3.5 * Math.PI);
-        ctx.strokeText(60 - secondsPassed, 55, 85);
+        ctx.arc(75, 75, 70, startAngleCoef * Math.PI, 3.5 * Math.PI);
+        ctx.fillText(60 - this.secondsPassed, 55, 85);
         ctx.stroke();
         startAngleCoef += 0.003333333;
         if(tenthsPassed === 900){
-            secondsPassed++;
+            this.secondsPassed++;
             tenthsPassed = 0;
         }else{
             tenthsPassed += 100;
         }
 
-        if(secondsPassed === 61) clearInterval(timer);
+        if(this.secondsPassed === 61) clearInterval(timer);
     }, 100);
+}
+
+//Handler for written word
+//Increment wrong/right word counter
+//Calculate WPM
+function handleWordWritten(wordCorrect){
+    //Update correct/wrong words count
+    wordCorrect ? this.correctWords ++ : this.wrongWords ++;
+
+    //Calculate WPM
+    this.wpm = parseInt(this.correctWords / (this.secondsPassed / 60)) || 0;
+
+    //Set WPM label
+    document.getElementById("wpm").innerText = this.wpm;
 
 }
 
@@ -104,6 +128,8 @@ function handleSpace(){
         const remainingText = document.getElementById("text-box").innerText;
         document.getElementById("text-box").innerText = remainingText.substr(remainingText.indexOf(" ") + 1)
 
+        handleWordWritten(true);
+
         //Set next word
         init();
     }else{
@@ -121,6 +147,8 @@ function handleSpace(){
         //Trim remaining text
         const remainingText = document.getElementById("text-box").innerText;
         document.getElementById("text-box").innerText = remainingText.substr(remainingText.indexOf(" ") + 1)
+
+        handleWordWritten(false);
 
         //Set next word
         init();
