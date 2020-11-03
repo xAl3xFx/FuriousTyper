@@ -6,10 +6,24 @@ wpm = 0;
 secondsPassed = 0;
 prevInput = "";
 
-function init(){
-    const text = document.getElementById("text-box").innerText;
-    currentWord = text.split(" ").filter(el => el !== "")[0];
+function fetchWords() {
+    const APIKey = "5ns9momoyv3b2af81kb1p5g3yc5nn3ccwpmrnjtssetblfipv";
+    //Fetch 200 random words from an API
+    // Promise.resolve(fetch(`https://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=3&maxLength=10&limit=200&api_key=${APIKey}`)
+    //     //Convert response to JSON
+    //     .then(response => response.json())
+    //     //Convert json to arr
+    //     .then(json => json.map(s => s.word))
+    //     //Convert arr to text
+    //     .then(wordsArr => wordsArr.join(" ")))
+    //     //Resolve the promise setting the text and current word.
+    //     .then(text => {
+    //         document.getElementById("text-box").innerText = text;
+    //         currentWord = text.split(" ").filter(el => el !== "")[0];
+    //     });
+}
 
+function init(){
     const inputElement = document.getElementById("input-box");
     inputElement.addEventListener("keydown", function(e){handleBackspace(e)} );
     inputElement.addEventListener("input", function (e) {handleInputChange(e)});
@@ -22,6 +36,7 @@ function init(){
             modal.style.display = "none";
         }
     }
+    fetchWords();
 }
 
 function getNextWord() {
@@ -74,9 +89,33 @@ function startTimer() {
             tenthsPassed += 100;
         }
 
-        if(secondsPassed === 61) clearInterval(timer);
+        if(secondsPassed === 60) {
+            ctx.fillText("0", 65, 85);
+            ctx.stroke();
+            clearInterval(timer);
+            showDialog();
+        }
     }, 100);
 }
+
+//Function which shows the modal dialog at the end of the game
+function showDialog() {
+    //Get the modal
+    const modal = document.getElementsByClassName("modal-wrapper")[0];
+
+    //Set WPM in the modal
+    document.getElementById("modal-wpm").innerText += wpm;
+
+    //Set accuracy in the modal
+    document.getElementById("modal-accuracy").innerText += parseInt(correctWords * 100 / ( correctWords + wrongWords)) || 0 ;
+
+    //Disable user input
+    document.getElementById("input-box").contentEditable = "false";
+
+    //Show modal
+    modal.style.display = "block";
+}
+
 
 //Handler for written word
 //Increment wrong/right word counter
@@ -98,8 +137,6 @@ function handleWordWritten(wordCorrect){
     //Set accuracy label
     document.getElementById("accuracy").innerText = accuracy;
     console.log(accuracy)
-
-
 }
 
 //Function to handle backspace

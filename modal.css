@@ -41,3 +41,11 @@
     outline: none;
     cursor: pointer;
 }
+
+#modal-wpm:after{
+     content: " words / minute";
+}
+
+#modal-accuracy:after{
+    content: " %";
+}
