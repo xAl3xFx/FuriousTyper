@@ -5,10 +5,21 @@
     <title>Furious Typer</title>
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="modal.css" />
     <script src="index.js"></script>
     <script src="game.js"></script>
 </head>
 <body onload="init(); renderTimer()">
+<div class="modal-wrapper">
+    <div class="modal-content">
+
+        <span class="modal-close">X</span>
+        <h2>Congratulations!</h2>
+        <h4>Your score is: </h4>
+        <h4>Your accuracy is: </h4>
+        <button class="modal-button">Try Again</button>
+    </div>
+</div>
 <header id="main-header">
     <nav>
         <h2>Furious Typer</h2>
@@ -24,8 +35,26 @@
 </header>
 <div id="main-wrapper">
     <header >
-        <canvas id="timer" width="150" height="150" >Your browser does not support the HTML5 canvas tag.</canvas>
-        <label id="wpm">0</label>
+        <div class="info">
+            <canvas id="timer" width="150" height="150" >Your browser does not support the HTML5 canvas tag.</canvas>
+            <div class="info-card-wrapper">
+                <div class="info-card-content">
+                    <label id="wpm">0</label>
+                </div>
+                <div class="info-card-footer">
+                    words / min
+                </div>
+            </div>
+            <div class="info-card-wrapper">
+                <div class="info-card-content">
+                    <label id="accuracy">0</label>
+                </div>
+                <div class="info-card-footer">
+                    accuracy %
+                </div>
+            </div>
+        </div>
+
     </header>
     <div>
         <div onclick="focusInputBox()" id="input-box-wrapper">

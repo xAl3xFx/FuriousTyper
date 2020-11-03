@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56676c18-a292-4fe9-a053-00d7b478abd9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/background-papaer.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/background-paper-brown.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modal.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -74,7 +71,7 @@
       <updated>1603221895515</updated>
       <workItem from="1603221897027" duration="22735000" />
       <workItem from="1603353939902" duration="1418000" />
-      <workItem from="1604330614854" duration="31624000" />
+      <workItem from="1604330614854" duration="37221000" />
     </task>
     <task id="LOCAL-00001" summary="Correct words are being added to prev container.">
       <created>1604335509068</created>
@@ -104,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604343071622</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added background, new color palette, WPM label and other.">
+      <created>1604409314183</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1604409314183</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,6 +130,7 @@
     <MESSAGE value="Fixed bug -&gt; Incorrectly inserting letters on backspace." />
     <MESSAGE value="Handle wrong word." />
     <MESSAGE value="Implemented timer starting on first input + bug fixes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented timer starting on first input + bug fixes." />
+    <MESSAGE value="Added background, new color palette, WPM label and other." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added background, new color palette, WPM label and other." />
   </component>
 </project>

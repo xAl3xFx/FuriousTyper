@@ -1,17 +1,32 @@
-this.currentWord = "";
-this.timerStarted = false;
-this.correctWords = 0;
-this.wrongWords = 0;
-this.wpm = 0;
-this.secondsPassed = 0;
+currentWord = "";
+timerStarted = false;
+correctWords = 0;
+wrongWords = 0;
+wpm = 0;
+secondsPassed = 0;
+prevInput = "";
 
 function init(){
     const text = document.getElementById("text-box").innerText;
-    this.currentWord = text.split(" ").filter(el => el !== "")[0];
+    currentWord = text.split(" ").filter(el => el !== "")[0];
 
     const inputElement = document.getElementById("input-box");
     inputElement.addEventListener("keydown", function(e){handleBackspace(e)} );
     inputElement.addEventListener("input", function (e) {handleInputChange(e)});
+
+    //Make the modal dialog closeable
+    window.onclick = function(event) {
+        const modal = document.getElementsByClassName("modal-wrapper")[0];
+        const modalCloseSpan = document.getElementsByClassName("modal-close")[0];
+        if (event.target == modal || event.target == modalCloseSpan) {
+            modal.style.display = "none";
+        }
+    }
+}
+
+function getNextWord() {
+    const text = document.getElementById("text-box").innerText;
+    currentWord = text.split(" ").filter(el => el !== "")[0];
 }
 
 function renderTimer() {
@@ -33,7 +48,7 @@ function startTimer() {
     const blinkingCaret = document.getElementById("blinking-cursor");
     blinkingCaret.parentElement.removeChild(blinkingCaret);
 
-    this.timerStarted = true;
+    timerStarted = true;
     let startAngleCoef = 1.5;
     //100 because when setInterval fires for first time, at least 100 seconds would have passed
     let tenthsPassed = 100;
@@ -45,17 +60,21 @@ function startTimer() {
         ctx.beginPath();
         ctx.font = "35px Arial";
         ctx.arc(75, 75, 70, startAngleCoef * Math.PI, 3.5 * Math.PI);
-        ctx.fillText(60 - this.secondsPassed, 55, 85);
+
+        //If time left is one digit only, we have to change the position
+        //In order to remain algined
+        (60 - secondsPassed) < 10 ?
+            ctx.fillText(60 - secondsPassed, 65, 85) : ctx.fillText(60 - secondsPassed, 55, 85);
         ctx.stroke();
         startAngleCoef += 0.003333333;
         if(tenthsPassed === 900){
-            this.secondsPassed++;
+            secondsPassed++;
             tenthsPassed = 0;
         }else{
             tenthsPassed += 100;
         }
 
-        if(this.secondsPassed === 61) clearInterval(timer);
+        if(secondsPassed === 61) clearInterval(timer);
     }, 100);
 }
 
@@ -64,13 +83,13 @@ function startTimer() {
 //Calculate WPM
 function handleWordWritten(wordCorrect){
     //Update correct/wrong words count
-    wordCorrect ? this.correctWords ++ : this.wrongWords ++;
+    wordCorrect ? correctWords ++ : wrongWords ++;
 
     //Calculate WPM
-    this.wpm = parseInt(this.correctWords / (this.secondsPassed / 60)) || 0;
+    wpm = parseInt(correctWords / (secondsPassed / 60)) || 0;
 
     //Set WPM label
-    document.getElementById("wpm").innerText = this.wpm;
+    document.getElementById("wpm").innerText = wpm;
 
 }
 
@@ -81,12 +100,15 @@ function handleBackspace(event){
         //Get input word from user
         const inputValue = document.getElementById("input-box").innerText;
 
-        //If input is empty -> return
-        if (!inputValue) return;
+        //If input is empty or the handler is fired with the same input -> return
+        if (!inputValue || inputValue === prevInput) return;
+
+        //Update prevInput
+        prevInput = inputValue;
 
         const lastChar = inputValue[inputValue.length - 1];
         //Decide if current character should be inserted in the text.
-        if(this.currentWord[inputValue.length - 1] === lastChar && isWordValid(true)){
+        if(currentWord[inputValue.length - 1] === lastChar && isWordValid(true)){
             //Get current text
             const text = document.getElementById("text-box").innerText;
 
@@ -114,7 +136,7 @@ function handleSpace(){
     inputValue = inputValue.substr(0, inputValue.length - 1);
 
     //Word is correct
-    if(inputValue === this.currentWord){
+    if(inputValue === currentWord){
         //Add this word to the prev container
         const prevWordsContainer = document.getElementById("previous-box");
         const wordSpan = document.createElement("span");
@@ -131,7 +153,7 @@ function handleSpace(){
         handleWordWritten(true);
 
         //Set next word
-        init();
+        getNextWord();
     }else{
         //Then the word is incorrect
         //Take user's input and add it to prev container and start next word
@@ -151,14 +173,14 @@ function handleSpace(){
         handleWordWritten(false);
 
         //Set next word
-        init();
+        getNextWord();
     }
 }
 
 //Function to handle text insertion
 function handleInputChange(event){
     //First, start the timer if not started.
-    if(!this.timerStarted){
+    if(!timerStarted){
         startTimer();
     }
 
@@ -212,16 +234,16 @@ function isWordValid(backSpace){
     const inputValue = document.getElementById("input-box").innerText;
 
     //If the word is longer than the actual word it is wrong.
-    if(inputValue.length > this.currentWord.length) return false;
+    if(inputValue.length > currentWord.length) return false;
 
     //Word is complete
-    if(inputValue === this.currentWord) return true;
+    if(inputValue === currentWord) return true;
 
     let diff;
     if(backSpace)
-        diff = findFirstDiffPos(inputValue.substr(0, inputValue.length - 1), this.currentWord);
+        diff = findFirstDiffPos(inputValue.substr(0, inputValue.length - 1), currentWord);
     else
-        diff = findFirstDiffPos(inputValue, this.currentWord);
+        diff = findFirstDiffPos(inputValue, currentWord);
 
     if (backSpace){
         return diff === inputValue.length - 1;
