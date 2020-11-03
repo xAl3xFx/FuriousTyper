@@ -44,6 +44,9 @@ function init(){
         }
     }
 
+    //Render timer
+    renderTimer();
+
     //Load words from API
     fetchWords();
 }
@@ -128,6 +131,23 @@ function showDialog() {
     generateTables(passedWords);
 }
 
+//Function which takes a string as parameter and compares it to the current word
+//The characters that are different should become red
+function setWrongCharacters(word) {
+    let result = "";
+    for (let i in currentWord){
+        if(word.length < i){
+            result += `<span style='color: red'>${currentWord.charAt(i)}</span>`;
+        }else{
+            if (word.charAt(i) !== currentWord.charAt(i)){
+                result += `<span style='color: red'>${currentWord.charAt(i)}</span>`;
+            }else{
+                result += currentWord.charAt(i);
+            }
+        }
+    }
+    return result;
+}
 
 //Handler for written word
 //Increment wrong/right word counter
@@ -147,7 +167,9 @@ function handleWordWritten(wordCorrect){
     document.getElementById("accuracy").innerText = accuracy;
 
     //Add word to the passedWords array
-    wordCorrect ? passedWords.correct.push(currentWord) : passedWords.incorrect.push(currentWord);
+    const previousBox = document.getElementById("previous-box");
+    const lastWord = previousBox.children[previousBox.childElementCount - 1].innerText;
+    wordCorrect ? passedWords.correct.push(currentWord) : passedWords.incorrect.push(setWrongCharacters(lastWord));
 }
 
 //Function to handle backspace

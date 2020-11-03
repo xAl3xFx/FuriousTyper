@@ -4,13 +4,31 @@ function generateTable(tableID, words) {
     for(let currWord of words){
         const row = document.createElement("tr");
         const word = document.createElement("td");
-        word.innerText = currWord;
+        word.innerHTML = currWord;
 
-        const definition = document.createElement("td");
-        definition.innerText = "View";
+        //Create TD for the definition
+        const definitionTD = document.createElement("td");
+        //Create div for the tooltip container
+        const tooltip = document.createElement("div");
+        //Tooltip container's text
+        tooltip.innerText = "View";
+        //Add tooltip class to the element
+        tooltip.classList.add("tooltip");
+
+        //Create span for the tooltipText
+        const tooltipText = document.createElement("span");
+        //Set style for the element
+        tooltipText.classList.add("tooltip-text");
+        //Loader must be shown before the word's definition is fetched from the API
+        const loader = document.createElement("div");
+        loader.classList.add("loader");
+
+        tooltipText.appendChild(loader);
+        tooltip.appendChild(tooltipText)
+        definitionTD.appendChild(tooltip);
 
         row.appendChild(word);
-        row.appendChild(definition);
+        row.appendChild(definitionTD);
 
         tbody.appendChild(row);
     }
