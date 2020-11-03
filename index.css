@@ -36,7 +36,7 @@ html{
     border: 1px solid gray;
     border-radius: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     height: 2rem;
     background: whitesmoke;
     cursor: pointer;
@@ -69,6 +69,14 @@ html{
     color: gray;
     line-height: 1.5;
     font-size: 25px;
+}
+
+#previous-box{
+    width: 50%;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    direction: rtl;
 }
 
 #timer{

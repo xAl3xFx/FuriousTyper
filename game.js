@@ -80,16 +80,25 @@ function startTimer() {
 
 //Handler for written word
 //Increment wrong/right word counter
-//Calculate WPM
+//Calculate WPM and Accuracy
 function handleWordWritten(wordCorrect){
     //Update correct/wrong words count
     wordCorrect ? correctWords ++ : wrongWords ++;
 
+    console.log(`correctWords ${correctWords}`)
+    console.log(`wrongWords ${wrongWords}`)
+
     //Calculate WPM
     wpm = parseInt(correctWords / (secondsPassed / 60)) || 0;
-
     //Set WPM label
     document.getElementById("wpm").innerText = wpm;
+
+    //Calculate accuracy
+    const accuracy = parseInt(correctWords * 100 / ( correctWords + wrongWords)) || 0 ;
+    //Set accuracy label
+    document.getElementById("accuracy").innerText = accuracy;
+    console.log(accuracy)
+
 
 }
 
