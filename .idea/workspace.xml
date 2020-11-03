@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="56676c18-a292-4fe9-a053-00d7b478abd9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/background-papaer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/background.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modal.css" beforeDir="false" afterPath="$PROJECT_DIR$/modal.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +70,7 @@
       <updated>1603221895515</updated>
       <workItem from="1603221897027" duration="22735000" />
       <workItem from="1603353939902" duration="1418000" />
-      <workItem from="1604330614854" duration="42762000" />
+      <workItem from="1604330614854" duration="43798000" />
     </task>
     <task id="LOCAL-00001" summary="Correct words are being added to prev container.">
       <created>1604335509068</created>
@@ -121,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604420742020</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fetch words from api.">
+      <created>1604428480182</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1604428480182</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +153,7 @@
     <MESSAGE value="Added background, new color palette, WPM label and other." />
     <MESSAGE value="Info-card created, improved layout (fonts, sizes, etc.)" />
     <MESSAGE value="Important fix -&gt; prev-box container rtl direction + overflow to hide words." />
-    <option name="LAST_COMMIT_MESSAGE" value="Important fix -&gt; prev-box container rtl direction + overflow to hide words." />
+    <MESSAGE value="Fetch words from api." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fetch words from api." />
   </component>
 </project>

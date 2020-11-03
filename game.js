@@ -24,6 +24,8 @@ function fetchWords() {
 }
 
 function init(){
+    currentWord = document.getElementById("text-box").innerText.split(" ").filter(el => el !== "")[0];
+
     const inputElement = document.getElementById("input-box");
     inputElement.addEventListener("keydown", function(e){handleBackspace(e)} );
     inputElement.addEventListener("input", function (e) {handleInputChange(e)});
@@ -90,6 +92,7 @@ function startTimer() {
         }
 
         if(secondsPassed === 60) {
+            ctx.clearRect(0, 0, 150, 150);
             ctx.fillText("0", 65, 85);
             ctx.stroke();
             clearInterval(timer);
