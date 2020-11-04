@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="56676c18-a292-4fe9-a053-00d7b478abd9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modal.css" beforeDir="false" afterPath="$PROJECT_DIR$/modal.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tables.js" beforeDir="false" afterPath="$PROJECT_DIR$/tables.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,7 +68,7 @@
       <updated>1603221895515</updated>
       <workItem from="1603221897027" duration="22735000" />
       <workItem from="1603353939902" duration="1418000" />
-      <workItem from="1604330614854" duration="50676000" />
+      <workItem from="1604330614854" duration="54664000" />
     </task>
     <task id="LOCAL-00001" summary="Correct words are being added to prev container.">
       <created>1604335509068</created>
@@ -144,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604440125225</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Table -&gt; view definition tooltip and loader.">
+      <created>1604445097508</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1604445097508</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +175,19 @@
     <MESSAGE value="Fetch words from api." />
     <MESSAGE value="Deleted unused backgrounds." />
     <MESSAGE value="Tables for correct and incorrect words." />
-    <option name="LAST_COMMIT_MESSAGE" value="Tables for correct and incorrect words." />
+    <MESSAGE value="Table -&gt; view definition tooltip and loader." />
+    <option name="LAST_COMMIT_MESSAGE" value="Table -&gt; view definition tooltip and loader." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/tables.js</url>
+          <line>45</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

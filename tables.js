@@ -14,11 +14,15 @@ function generateTable(tableID, words) {
         tooltip.innerText = "View";
         //Add tooltip class to the element
         tooltip.classList.add("tooltip");
+        //Add omouseover event listener to fetch definition
+        tooltip.addEventListener("mouseover",  () => fetchDefinition(word.innerText));
 
         //Create span for the tooltipText
         const tooltipText = document.createElement("span");
         //Set style for the element
         tooltipText.classList.add("tooltip-text");
+        //Set id for this element
+        tooltip.setAttribute("id", `${word.innerText}-tooltip`);
         //Loader must be shown before the word's definition is fetched from the API
         const loader = document.createElement("div");
         loader.classList.add("loader");
@@ -39,4 +43,34 @@ function generateTable(tableID, words) {
 function generateTables(passedWords) {
     generateTable('table-correct', passedWords.correct);
     generateTable('table-incorrect', passedWords.incorrect);
+}
+
+//Function which fetches definition of a word from the Wordnik API
+function fetchDefinition(word){
+    //First check if the definition has already been fetchd
+    //If so -> return
+    if(document.getElementById(`${word}-tooltip`).innerText !== "View") return;
+
+
+    const APIKey = "5ns9momoyv3b2af81kb1p5g3yc5nn3ccwpmrnjtssetblfipv";
+    const data = new Promise((resolve, reject) => {
+        fetch(`https://api.wordnik.com/v4/word.json/${word}/definitions?limit=200&includeRelated=false&useCanonical=false&includeTags=false&api_key=${APIKey}`)
+            .then(response => resolve(response.json()))
+            .catch(err => {
+                console.log(`Definition for ${word} could not be fetched.`);
+                reject(err);
+            });
+
+    });
+
+    data.then(response =>{
+        console.log(response);
+        //Iterate through all definitions and build HTML which will be applied to the tooltip
+        const result = response.reduce((acc, elem) => {
+            return acc += "<p>" + elem.text + "</p>";
+        }, "");
+        document.getElementById(`${word}-tooltip`).innerHTML = result;
+
+    })
+
 }
