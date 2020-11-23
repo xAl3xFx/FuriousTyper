@@ -72,7 +72,7 @@
       <workItem from="1603353939902" duration="1418000" />
       <workItem from="1604330614854" duration="57288000" />
       <workItem from="1604571348017" duration="594000" />
-      <workItem from="1606151085584" duration="5182000" />
+      <workItem from="1606151085584" duration="6876000" />
     </task>
     <task id="LOCAL-00001" summary="Correct words are being added to prev container.">
       <created>1604335509068</created>
@@ -186,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606156331374</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Better font-size and some more refactoring.">
+      <created>1606156961025</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1606156961025</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,7 +229,8 @@
     <MESSAGE value="All functions refactored to arrow functions." />
     <MESSAGE value="Created and moved table's styles to table.css" />
     <MESSAGE value="Navigation refactoring." />
-    <option name="LAST_COMMIT_MESSAGE" value="Navigation refactoring." />
+    <MESSAGE value="Better font-size and some more refactoring." />
+    <option name="LAST_COMMIT_MESSAGE" value="Better font-size and some more refactoring." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

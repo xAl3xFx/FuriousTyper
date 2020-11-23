@@ -69,15 +69,16 @@
     font-weight: 100;
     color: #2E3D48;
     animation: 1s blink step-end infinite;
+    border-right: 1px solid black;
     display: flex;
 }
 
 @keyframes blink {
     from, to {
-        color: transparent;
+        height: 0;
     }
     50% {
-        color: black;
+        height: 2rem;
     }
 }
 
