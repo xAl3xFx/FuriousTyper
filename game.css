@@ -1,13 +1,5 @@
 @import "index.css";
 
-main header{
-    text-align: center;
-}
-
-main header label{
-    display: block;
-}
-
 #input-box{
     caret-color: black;
     text-align: right;
@@ -27,9 +19,9 @@ main header label{
     border-radius: 10px;
     display: flex;
     justify-content: flex-end;
-    height: 2rem;
     background: whitesmoke;
     cursor: pointer;
+    align-items: center;
 }
 
 #text-box{
@@ -37,7 +29,7 @@ main header label{
     max-width: 50%;
     overflow: hidden;
     line-height: 1.5;
-    font-size: 25px;
+    font-size: 2rem;
 }
 
 [contenteditable="true"].single-line {
@@ -58,7 +50,7 @@ main header label{
     margin: 0 0.2rem;
     color: gray;
     line-height: 1.5;
-    font-size: 25px;
+    font-size: 2rem;
 }
 
 #previous-box{
@@ -77,9 +69,7 @@ main header label{
     font-weight: 100;
     color: #2E3D48;
     animation: 1s blink step-end infinite;
-    line-height: 1.05 !important;
-    font-size: 30px !important;
-    margin: 0 !important;
+    display: flex;
 }
 
 @keyframes blink {
@@ -94,6 +84,7 @@ main header label{
 .info{
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 .info-card-content label{

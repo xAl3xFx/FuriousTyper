@@ -36,28 +36,25 @@
     </nav>
 </header>
 <main>
-    <header >
-        <div class="info">
-            <canvas id="timer" width="150" height="150" >Your browser does not support the HTML5 canvas tag.</canvas>
-            <div class="info-card-wrapper">
-                <div class="info-card-content">
-                    <label id="wpm">0</label>
-                </div>
-                <div class="info-card-footer">
-                    words / min
-                </div>
+    <div class="info">
+        <canvas id="timer" width="150" height="150" >Your browser does not support the HTML5 canvas tag.</canvas>
+        <div class="info-card-wrapper">
+            <div class="info-card-content">
+                <label id="wpm">0</label>
             </div>
-            <div class="info-card-wrapper">
-                <div class="info-card-content">
-                    <label id="accuracy">0</label>
-                </div>
-                <div class="info-card-footer">
-                    accuracy %
-                </div>
+            <div class="info-card-footer">
+                words / min
             </div>
         </div>
-
-    </header>
+        <div class="info-card-wrapper">
+            <div class="info-card-content">
+                <label id="accuracy">0</label>
+            </div>
+            <div class="info-card-footer">
+                accuracy %
+            </div>
+        </div>
+    </div>
     <div onclick="focusInputBox()" id="input-box-wrapper">
         <div id="previous-box">
             <span id="blinking-cursor">|</span>
