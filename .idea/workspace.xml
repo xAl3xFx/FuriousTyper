@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56676c18-a292-4fe9-a053-00d7b478abd9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/highscore.html" beforeDir="false" afterPath="$PROJECT_DIR$/highscore.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,7 +73,7 @@
       <workItem from="1603353939902" duration="1418000" />
       <workItem from="1604330614854" duration="57288000" />
       <workItem from="1604571348017" duration="594000" />
-      <workItem from="1606151085584" duration="2863000" />
+      <workItem from="1606151085584" duration="4436000" />
     </task>
     <task id="LOCAL-00001" summary="Correct words are being added to prev container.">
       <created>1604335509068</created>
@@ -163,7 +166,21 @@
       <option name="project" value="LOCAL" />
       <updated>1606153680586</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="All functions refactored to arrow functions.">
+      <created>1606153990370</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1606153990370</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Created and moved table's styles to table.css">
+      <created>1606154053941</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1606154053941</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,7 +213,9 @@
     <MESSAGE value="Table -&gt; view definition tooltip and loader." />
     <MESSAGE value="Table -&gt; Fetching definitions is working." />
     <MESSAGE value="Some refactoring and renaming." />
-    <option name="LAST_COMMIT_MESSAGE" value="Some refactoring and renaming." />
+    <MESSAGE value="All functions refactored to arrow functions." />
+    <MESSAGE value="Created and moved table's styles to table.css" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created and moved table's styles to table.css" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

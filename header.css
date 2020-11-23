@@ -37,7 +37,6 @@
     color: black;
 }
 
-.menu-item-active{
-    color: black !important;
-
+#main-header ul li .menu-item-active{
+    color: black;
 }

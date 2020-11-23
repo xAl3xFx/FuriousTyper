@@ -1,3 +1,10 @@
+const handlePage = () => {
+    console.log(location.href)
+    let page = location.href;
+    page = page.split("/").slice(-1)[0];
+    page = page.substring(0, page.indexOf(".html"));
+    document.getElementById("menu-"+page).classList.add("menu-item-active");
+}
 
 const startCounting = () => {
     fetch('text')

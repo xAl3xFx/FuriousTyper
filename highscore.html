@@ -5,17 +5,18 @@
     <title>Highscore</title>
     <link rel="stylesheet" href="header.css" />
     <link rel="stylesheet" href="highscore.css" />
+    <script src="index.js" ></script>
 </head>
-<body>
+<body onload="handlePage()">
 <header id="main-header">
     <h2>Furious Typer</h2>
     <nav>
         <ul>
             <li>
-                <a id="menu-play" class="menu-item-active" onclick="handleMenuClick('play')" href="game.html">Play</a>
+                <a id="menu-game"  href="game.html">Play</a>
             </li>
             <li>
-                <a id="menu-highscore" onclick="handleMenuClick('highscore')" href="#">High score</a>
+                <a id="menu-highscore" href="#">High score</a>
             </li>
         </ul>
     </nav>
