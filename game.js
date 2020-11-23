@@ -10,7 +10,7 @@ passedWords = {
     incorrect: []
 };
 
-function fetchWords() {
+const fetchWords = () => {
     const APIKey = "5ns9momoyv3b2af81kb1p5g3yc5nn3ccwpmrnjtssetblfipv";
     //Fetch 200 random words from an API
     // Promise.resolve(fetch(`https://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=3&maxLength=10&limit=200&api_key=${APIKey}`)
@@ -27,7 +27,7 @@ function fetchWords() {
     //     });
 }
 
-function init(){
+const init = () => {
     //TODO Next line must be removed when using the Wordnik API.
     currentWord = document.getElementById("text-box").innerText.split(" ").filter(el => el !== "")[0];
 
@@ -51,12 +51,12 @@ function init(){
     fetchWords();
 }
 
-function getNextWord() {
+const getNextWord = () => {
     const text = document.getElementById("text-box").innerText;
     currentWord = text.split(" ").filter(el => el !== "")[0];
 }
 
-function renderTimer() {
+const renderTimer = () => {
     var c = document.getElementById("timer");
     var ctx = c.getContext("2d");
     ctx.clearRect(0, 0, 150, 150);
@@ -67,9 +67,9 @@ function renderTimer() {
     ctx.lineWidth = 3;
     ctx.strokeStyle = "#fff1e6";
     ctx.stroke();
-}
+};
 
-function startTimer() {
+const startTimer = () => {
     //When timer is started, it means that the user has started typing
     //so we need to remove the blinking caret
     const blinkingCaret = document.getElementById("blinking-cursor");
@@ -108,10 +108,10 @@ function startTimer() {
             showDialog();
         }
     }, 100);
-}
+};
 
 //Function which shows the modal dialog at the end of the game
-function showDialog() {
+const showDialog = () => {
     //Get the modal
     const modal = document.getElementsByClassName("modal-wrapper")[0];
 
@@ -129,11 +129,11 @@ function showDialog() {
 
     //Finally generate tables with correct and incorrect words
     generateTables(passedWords);
-}
+};
 
 //Function which takes a string as parameter and compares it to the current word
 //The characters that are different should become red
-function setWrongCharacters(word) {
+const setWrongCharacters = (word) => {
     let result = "";
     for (let i in currentWord){
         if(word.length < i){
@@ -147,12 +147,12 @@ function setWrongCharacters(word) {
         }
     }
     return result;
-}
+};
 
 //Handler for written word
 //Increment wrong/right word counter
 //Calculate WPM and Accuracy
-function handleWordWritten(wordCorrect){
+const handleWordWritten = (wordCorrect) => {
     //Update correct/wrong words count
     wordCorrect ? correctWords ++ : wrongWords ++;
 
@@ -170,10 +170,10 @@ function handleWordWritten(wordCorrect){
     const previousBox = document.getElementById("previous-box");
     const lastWord = previousBox.children[previousBox.childElementCount - 1].innerText;
     wordCorrect ? passedWords.correct.push(currentWord) : passedWords.incorrect.push(setWrongCharacters(lastWord));
-}
+};
 
 //Function to handle backspace
-function handleBackspace(event){
+const handleBackspace = (event) => {
     //Check if backspace is pressed
     if(event.key === "Backspace"){
         //Get input word from user
@@ -199,9 +199,9 @@ function handleBackspace(event){
         //Finally validate word and apply styles
         fixInputStyle(true);
     }
-}
+};
 
-function handleSpace(){
+const handleSpace = () => {
     //Get input word from user
     let inputValue = document.getElementById("input-box").innerText;
 
@@ -254,10 +254,10 @@ function handleSpace(){
         //Set next word
         getNextWord();
     }
-}
+};
 
 //Function to handle text insertion
-function handleInputChange(event){
+const handleInputChange = (event) => {
     //First, start the timer if not started.
     if(!timerStarted){
         startTimer();
@@ -303,13 +303,13 @@ function handleInputChange(event){
 
     //Finally validate word and apply styles
     fixInputStyle(false);
-}
+};
 
 //Function to validate if the word that user is currently typing is correct substring of the word that he is typing.
 //${backSpace} - This parameter is used to determine whether to compare with the input length or input length - 1
 //Because when text is being written/inserted, handleInputChange function is fired when the input is updated, a.k.a
 //It uses the updated value of the input, while when handleBackspace is fired it is using the outdated one.
-function isWordValid(backSpace){
+const isWordValid = (backSpace) => {
     const inputValue = document.getElementById("input-box").innerText;
 
     //If the word is longer than the actual word it is wrong.
@@ -328,12 +328,11 @@ function isWordValid(backSpace){
         return diff === inputValue.length - 1;
     }
     return diff === inputValue.length;
-
-}
+};
 
 //Function to manage input style /*whether line through or normal */
 //${backSpace} - This parameter is required for isWordValid function.
-function fixInputStyle(backSpace){
+const fixInputStyle = (backSpace) => {
     const wordValid = isWordValid(backSpace);
     const inputElement = document.getElementById("input-box");
     //Input is correct
@@ -352,10 +351,10 @@ function fixInputStyle(backSpace){
             inputElement.classList.add("wrong");
         }
     }
-}
+};
 
 //Function to compare two strings and find first differing character
-function findFirstDiffPos(a, b){
+const findFirstDiffPos = (a, b) =>{
     const shorterLength = Math.min(a.length, b.length);
 
     for (let i = 0; i < shorterLength; i++){
@@ -365,4 +364,4 @@ function findFirstDiffPos(a, b){
     if (a.length !== b.length) return shorterLength;
 
     return -1;
-}
+};
