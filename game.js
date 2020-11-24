@@ -5,7 +5,7 @@ let timerStarted = false;
 let correctWords = 0;
 let wrongWords = 0;
 let wpm = 0;
-let secondsPassed = 55;
+let secondsPassed = 0;
 let prevInput = "";
 let passedWords = {
     correct: [],
@@ -14,7 +14,7 @@ let passedWords = {
 
 const fetchWords = () => {
     const APIKey = "5ns9momoyv3b2af81kb1p5g3yc5nn3ccwpmrnjtssetblfipv";
-    //Fetch 200 random words from an API
+    // Fetch 200 random words from an API
     // Promise.resolve(fetch(`https://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=3&maxLength=10&limit=200&api_key=${APIKey}`)
     //     //Convert response to JSON
     //     .then(response => response.json())
