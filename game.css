@@ -5,6 +5,7 @@
     text-align: right;
     outline: none;
     width: fit-content;
+    width: -moz-fit-content;
     color: deepskyblue;
     line-height: 1.5;
     font-size: 2rem;

@@ -3,7 +3,7 @@ timerStarted = false;
 correctWords = 0;
 wrongWords = 0;
 wpm = 0;
-secondsPassed = 55;
+secondsPassed = 0;
 prevInput = "";
 passedWords = {
     correct: [],
@@ -157,7 +157,7 @@ const handleWordWritten = (wordCorrect) => {
     wordCorrect ? correctWords ++ : wrongWords ++;
 
     //Calculate WPM
-    wpm = parseInt(correctWords / (secondsPassed / 60)) || 0;
+    wpm = parseInt(correctWords * (60 / secondsPassed)) || 0;
     //Set WPM label
     document.getElementById("wpm").innerText = wpm;
 
@@ -212,7 +212,9 @@ const handleSpace = () => {
     if((inputValue.length === 1 && inputValue.charCodeAt(0) === 160) || inputValue.charAt(0) === " ") return 0;
 
     //Remove last char because it is the space that has just been pressed
-    inputValue = inputValue.substr(0, inputValue.length - 1);
+    //Only if using Chrome, because Mozilla handles those events differently
+    if(navigator.userAgent.indexOf("Chrome") !== -1)
+        inputValue = inputValue.substr(0, inputValue.length - 1);
 
     //Word is correct
     if(inputValue === currentWord){
@@ -270,6 +272,9 @@ const handleInputChange = (event) => {
     //If so return because we have
     //Different handler for backspace
     if(event.inputType === "deleteContentBackward") return;
+
+    //Handle invalid entries
+    if(!event.data) return;
 
     //Check if input value is space
     else if(event.data.charAt(0) === " " || event.data.charCodeAt(0) === 160){
