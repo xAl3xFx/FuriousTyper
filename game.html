@@ -19,7 +19,11 @@
         <h2>Congratulations!</h2>
         <h4 id="modal-wpm">Your score is: </h4>
         <h4 id="modal-accuracy">Your accuracy is: </h4>
-        <button class="modal-button">Try Again</button>
+        <h3>Save your score</h3>
+        <label for="name">Your name: </label>
+        <input type="text" name="name" id="name" />
+        <button onclick="saveScore()" class="modal-button">Okay</button>
+        <p id="error-message"></p>
     </div>
 </div>
 <header id="main-header">

@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56676c18-a292-4fe9-a053-00d7b478abd9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/highscore.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.css" beforeDir="false" afterPath="$PROJECT_DIR$/game.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/game.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/highscore.css" beforeDir="false" afterPath="$PROJECT_DIR$/highscore.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/highscore.html" beforeDir="false" afterPath="$PROJECT_DIR$/highscore.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tables.js" beforeDir="false" afterPath="$PROJECT_DIR$/tables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modal.css" beforeDir="false" afterPath="$PROJECT_DIR$/modal.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,9 +20,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -73,7 +76,7 @@
       <workItem from="1603353939902" duration="1418000" />
       <workItem from="1604330614854" duration="57288000" />
       <workItem from="1604571348017" duration="594000" />
-      <workItem from="1606151085584" duration="10696000" />
+      <workItem from="1606151085584" duration="15319000" />
     </task>
     <task id="LOCAL-00001" summary="Correct words are being added to prev container.">
       <created>1604335509068</created>
@@ -215,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606212641359</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="&quot;use strict&quot; everywhere.">
+      <created>1606214023237</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1606214023237</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,7 +265,8 @@
     <MESSAGE value="Some browser support." />
     <MESSAGE value="Fixed some bugs + more browser support." />
     <MESSAGE value="Blinking caret position fixed + word definitions displayed as &lt;ul&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Blinking caret position fixed + word definitions displayed as &lt;ul&gt;" />
+    <MESSAGE value="&quot;use strict&quot; everywhere." />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;use strict&quot; everywhere." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

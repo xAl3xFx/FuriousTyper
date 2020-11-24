@@ -106,7 +106,10 @@ const startTimer = () => {
         if(secondsPassed === 60) {
             clearInterval(timer);
             ctx.clearRect(0, 0, 150, 150);
-            ctx.fillText("0", 65, 85);
+            ctx.font = "2rem Montserat"
+            ctx.fillText("Try Again", 0, 75);
+            ctx.canvas.style.cursor = "pointer";
+            ctx.canvas.addEventListener('click', () => location.reload());
             showDialog();
         }
     }, 100);
