@@ -3,7 +3,7 @@ timerStarted = false;
 correctWords = 0;
 wrongWords = 0;
 wpm = 0;
-secondsPassed = 0;
+secondsPassed = 55;
 prevInput = "";
 passedWords = {
     correct: [],

@@ -64,11 +64,13 @@ function fetchDefinition(word){
     });
 
     data.then(response =>{
-        console.log(response);
+        const ul = "<ul>"
         //Iterate through all definitions and build HTML which will be applied to the tooltip
-        const result = response.reduce((acc, elem) => {
-            return acc += "<p>" + elem.text + "</p>";
-        }, "");
+        let result = response.reduce((acc, elem) => {
+            return acc += "<li>" + elem.text + "</li>";
+        }, ul);
+
+        result += "</ul>";
         document.getElementById(`${word}-tooltip`).innerHTML = result;
 
     })
