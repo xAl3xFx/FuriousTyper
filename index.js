@@ -1,3 +1,5 @@
+"use strict";
+
 const handlePage = () => {
     console.log(location.href)
     let page = location.href;

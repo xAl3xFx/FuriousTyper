@@ -1,11 +1,13 @@
-currentWord = "";
-timerStarted = false;
-correctWords = 0;
-wrongWords = 0;
-wpm = 0;
-secondsPassed = 55;
-prevInput = "";
-passedWords = {
+"use strict";
+
+let currentWord = "";
+let timerStarted = false;
+let correctWords = 0;
+let wrongWords = 0;
+let wpm = 0;
+let secondsPassed = 55;
+let prevInput = "";
+let passedWords = {
     correct: [],
     incorrect: []
 };

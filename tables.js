@@ -1,3 +1,5 @@
+"use strict";
+
 function generateTable(tableID, words) {
     const table = document.getElementById(tableID);
     const tbody = document.createElement("tbody");
